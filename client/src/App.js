@@ -15,7 +15,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     width: '600px',
-    border: '2px solid black',
+    background: 'url(https://i.pinimg.com/564x/87/e9/57/87e9575838649d0237c617948a967993.jpg)',
+    color: '#ffffff',
+    height: '90px',
 
     [theme.breakpoints.down('xs')]: {
       width: '90%',
@@ -38,7 +40,7 @@ const App = () => {
   return (
     <div className={classes.wrapper}>
       <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography variant="h2" align="center">Video Chat</Typography>
+        <Typography variant="h4" align="center">MC Görüntülü Sohbet Uygulaması</Typography>
       </AppBar>
       <VideoPlayer />
       <Sidebar>

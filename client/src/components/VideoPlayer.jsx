@@ -6,6 +6,8 @@ import { SocketContext } from '../Context';
 const useStyles = makeStyles((theme) => ({
   video: {
     width: '550px',
+    borderRadius: '50px',
+    transform: 'scaleX(-1)',
     [theme.breakpoints.down('xs')]: {
       width: '300px',
     },
@@ -17,9 +19,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   paper: {
-    padding: '10px',
-    border: '2px solid black',
+    padding: '20px',
     margin: '10px',
+    background: 'url(https://i.pinimg.com/564x/87/e9/57/87e9575838649d0237c617948a967993.jpg)',
+    borderRadius: '50px',
+    color: '#ffffff',
   },
 }));
 
@@ -32,7 +36,7 @@ const VideoPlayer = () => {
       {stream && (
         <Paper className={classes.paper}>
           <Grid item xs={12} md={6}>
-            <Typography variant="h5" gutterBottom>{name || 'Name'}</Typography>
+            <Typography variant="h5" gutterBottom>{name || 'MC Chat Kullanıcısı'}</Typography>
             <video playsInline muted ref={myVideo} autoPlay className={classes.video} />
           </Grid>
         </Paper>
@@ -40,7 +44,7 @@ const VideoPlayer = () => {
       {callAccepted && !callEnded && (
         <Paper className={classes.paper}>
           <Grid item xs={12} md={6}>
-            <Typography variant="h5" gutterBottom>{call.name || 'Name'}</Typography>
+            <Typography variant="h5" gutterBottom>{call.name || 'İsim'}</Typography>
             <video playsInline ref={userVideo} autoPlay className={classes.video} />
           </Grid>
         </Paper>

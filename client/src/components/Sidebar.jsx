@@ -30,10 +30,13 @@ const useStyles = makeStyles((theme) => ({
   },
   padding: {
     padding: 20,
+    color: '#ffffff',
   },
   paper: {
     padding: '10px 20px',
-    border: '2px solid black',
+    borderRadius: '15px',
+    background: 'url(https://i.pinimg.com/564x/70/94/ad/7094ad04979f93eb34fa164cf5be5a14.jpg)',
+    color: '#fff',
   },
 }));
 
@@ -48,24 +51,24 @@ const Sidebar = ({ children }) => {
         <form className={classes.root} noValidate autoComplete="off">
           <Grid container className={classes.gridContainer}>
             <Grid item xs={12} md={6} className={classes.padding}>
-              <Typography gutterBottom variant="h6">Account Info</Typography>
-              <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
+              <Typography gutterBottom variant="h6" className={classes.text}>Kullanıcı Adı</Typography>
+              <TextField label="Adın" value={name} onChange={(e) => setName(e.target.value)} inputProps={{ maxLength: 30 }} />
               <CopyToClipboard text={me} className={classes.margin}>
-                <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize="large" />}>
-                  Copy Your ID
+                <Button variant="contained" color="primary" fullWidth style={{ background: '#19ACD5' }} startIcon={<Assignment fontSize="large" />}>
+                  ID ni Kopyala
                 </Button>
               </CopyToClipboard>
             </Grid>
             <Grid item xs={12} md={6} className={classes.padding}>
-              <Typography gutterBottom variant="h6">Make a call</Typography>
-              <TextField label="ID to call" value={idToCall} onChange={(e) => setIdToCall(e.target.value)} fullWidth />
+              <Typography gutterBottom variant="h6" className={classes.text}>Çağrı Oluştur</Typography>
+              <TextField label="Arkadaşının ID'si" value={idToCall} onChange={(e) => setIdToCall(e.target.value)} fullWidth />
               {callAccepted && !callEnded ? (
                 <Button variant="contained" color="secondary" startIcon={<PhoneDisabled fontSize="large" />} fullWidth onClick={leaveCall} className={classes.margin}>
-                  Hang Up
+                  Çağrıyı Sonlandır
                 </Button>
               ) : (
-                <Button variant="contained" color="primary" startIcon={<Phone fontSize="large" />} fullWidth onClick={() => callUser(idToCall)} className={classes.margin}>
-                  Call
+                <Button variant="contained" color="primary" startIcon={<Phone fontSize="large" />} fullWidth onClick={() => callUser(idToCall)} style={{ background: '#19D551' }} className={classes.margin}>
+                  Ara
                 </Button>
               )}
             </Grid>
